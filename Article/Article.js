@@ -133,10 +133,10 @@ function articleCreator(text, date, paragraph1, paragraph2, paragraph3) {
   p3.textContent = paragraph3;
 
   const expand = document.createElement('span');
-  expand.textContent = "open";
+  expand.textContent = "open/close";
   expand.classList.add('expandButton');
   expand.addEventListener(('click'), event => {
-    article.classList.add('article-open');
+    article.classList.toggle('article-open');
   })
   
   article.appendChild(title);
