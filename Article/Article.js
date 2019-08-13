@@ -89,6 +89,7 @@ const data = [
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
+
   
   <div class="article">
     <h2>{title of the article}</h2>
@@ -112,3 +113,47 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+let articles = document.querySelector('.articles');
+
+function articleCreator(text, date, paragraph1, paragraph2, paragraph3) {
+  const article = document.createElement('div');
+  article.classList.add('article');
+  const title = document.createElement('h2');
+  title.textContent = text;
+  const articleDate = document.createElement('p');
+  articleDate.classList.add('date');
+  articleDate.textContent = date;
+
+  const p1 = document.createElement('p');
+  p1.textContent = paragraph1;
+  const p2 = document.createElement('p');
+  p2.textContent = paragraph2;
+  const p3 = document.createElement('p');
+  p3.textContent = paragraph3;
+
+  const expand = document.createElement('span');
+  expand.textContent = "open/close";
+  expand.classList.add('expandButton');
+  expand.addEventListener(('click'), event => {
+    article.classList.toggle('article-open');
+  })
+  
+  article.appendChild(title);
+  article.appendChild(articleDate);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expand);
+  return article;
+}
+
+let newArticles = data.map(function(item){
+  let newArticle = articleCreator(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
+  return newArticle;
+})
+
+newArticles.forEach(function(item){
+  articles.appendChild(item);
+})
+
