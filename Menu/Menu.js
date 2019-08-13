@@ -38,10 +38,9 @@ function listItemMaker(text){
 }
 
 let newMenuItems = menuItems.map(function(item){
-  console.log(item);
-  const newMenuItem = listItemMaker(item);
-  return newMenuItem;
+  return listItemMaker(item);
 })
+console.log(newMenuItems);
 
 
 function menuMaker(){
@@ -59,6 +58,6 @@ function menuMaker(){
   return menu; 
 }
 
-body.prepend(menuMaker(menuItems));
+body.prepend(menuMaker());
 
 

@@ -135,7 +135,7 @@ function articleCreator(text, date, paragraph1, paragraph2, paragraph3) {
   const expand = document.createElement('span');
   expand.textContent = "open/close";
   expand.classList.add('expandButton');
-  expand.addEventListener(('click'), event => {
+  expand.addEventListener(('click'), (event) => {
     article.classList.toggle('article-open');
   })
   
@@ -149,8 +149,7 @@ function articleCreator(text, date, paragraph1, paragraph2, paragraph3) {
 }
 
 let newArticles = data.map(function(item){
-  let newArticle = articleCreator(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
-  return newArticle;
+  return articleCreator(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
 })
 
 newArticles.forEach(function(item){
